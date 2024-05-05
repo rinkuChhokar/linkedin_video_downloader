@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <div
+      class="grid md:grid-cols-2 items-center md:gap-8 gap-6 font-[sans-serif] text-[#333] max-w-5xl max-md:max-w-md mx-auto mt-20"
+    >
+      <div class="max-md:order-1 max-md:text-center">
+        <h2
+          class="md:text-4xl text-3xl md:leading-10 font-extrabold text-[#333] mb-4"
+        >
+          Download LinkedIn Videos with Ease
+        </h2>
+        <p class="mt-4 text-base text-[#666] leading-relaxed">
+          Take control of your LinkedIn content with our hassle-free video
+          downloading solution.
+        </p>
+        <div class="mt-8 flex max-sm:flex-col sm:space-x-4 max-sm:space-y-6">
+          <a
+            href="javascript:void(0);"
+            class="px-6 py-3 text-base font-semibold text-white bg-[#f032e6] rounded-full hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-[#f032e6] focus:outline-none focus:ring-opacity-50"
+            >Explore</a
+          >
+          <a
+            href="javascript:void(0);"
+            class="px-6 py-3 text-base font-semibold text-[#f032e6] border border-[#f032e6] rounded-full hover:text-white hover:bg-[#f032e6] transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-[#f032e6] focus:outline-none focus:ring-opacity-50"
+            >About Us</a
+          >
+        </div>
+      </div>
+      <div class="md:h-[450px]">
+        <img
+          src="{{ url_for('static', filename='images/hero.jpg') }}"
+          class="w-full h-full object-cover rounded-lg shadow-xl"
+          alt="Dining Experience"
+        />
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-20 m-auto">
+      <h2
+        class="md:text-3xl text-3xl md:leading-10 font-extrabold text-[#333] mb-4"
+      >
+        Enter your LinkedIn Post Link Below
+      </h2>
+    </div>
+    <div class="px-40 mt-10">
+      <form action="{{ url_for('video') }}" method="POST">
+        <label
+          for="search"
+          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+          >Enter link</label
+        >
+        <div class="relative">
+          <div
+            class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+          >
+            <svg
+              class="w-4 h-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+              />
+            </svg>
+          </div>
+          <input
+            type="search"
+            name="link-input"
+            id="search"
+            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter link..."
+            required
+          />
+          <button
+            type="submit"
+            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+
+    {% include 'footer.html' %}
+  </body>
+</html>
